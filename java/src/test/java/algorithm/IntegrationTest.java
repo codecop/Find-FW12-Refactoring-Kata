@@ -14,17 +14,17 @@ class IntegrationTest {
         FindW finder = new FindW("w.dat");
 
         @Test
-        void shouldFindDyOne() throws IOException {
-            String dy = finder.find(OneTwo.ONE);
+        void shouldFindOne() throws IOException {
+            String r = finder.find(OneTwo.ONE);
 
-            assertEquals("14", dy);
+            assertEquals("14", r);
         }
 
         @Test
-        void shouldFindDyTwo() throws IOException {
-            String dy = finder.find(OneTwo.TWO);
+        void shouldFindTwo() throws IOException {
+            String r = finder.find(OneTwo.TWO);
 
-            assertEquals("9", dy);
+            assertEquals("9", r);
         }
 
     }
@@ -34,17 +34,17 @@ class IntegrationTest {
         FindF finder = new FindF("f.dat");
 
         @Test
-        void shouldFindTeamOne() throws IOException {
-            String team = finder.find(OneTwo.ONE);
+        void shouldFindOne() throws IOException {
+            String r = finder.find(OneTwo.ONE);
 
-            assertEquals("Aston_Villa", team);
+            assertEquals("Aston_Villa", r);
         }
 
         @Test
-        void shouldFindTeamTwo() throws IOException {
-            String team = finder.find(OneTwo.TWO);
+        void shouldFindTwo() throws IOException {
+            String r = finder.find(OneTwo.TWO);
 
-            assertEquals("Arsenal", team);
+            assertEquals("Arsenal", r);
         }
 
     }
