@@ -1,4 +1,4 @@
-# (Incomprehensible) Find F&W 1&2 Kata
+# (Incomprehensible) Find FW12 Refactoring Kata
 
 Refactoring exercise focusing on naming
 
