@@ -1,0 +1,15 @@
+{
+  "name": "find-fw12",
+  "version": "1.0.0",
+  "author": "Peter 'Code Cop' Kofler",
+  "license": "BSD3",
+  "devDependencies": {
+    "@types/jest": "^27.0.0",
+    "@types/node": "^10.0.0",
+    "jest": "^27.0.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  }
+}
