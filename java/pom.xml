@@ -4,7 +4,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.codecop</groupId>
-    <artifactId>TODO</artifactId>
+    <artifactId>find-fw-12</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -18,13 +18,13 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.4.0</version>
+            <version>5.12.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.4.0</version>
+            <version>5.12.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -33,7 +33,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.1</version>
+                <version>3.5.3</version>
             </plugin>
         </plugins>
     </build>

@@ -1,6 +1,8 @@
-# TODO-Refactoring-Kata
+# (Incomprehensible) Find F&W 1&2 Kata
 
-Refactoring exercise focusing on naming.
+Refactoring exercise focusing on naming
+
+inspired by K. Scott Allen's [Incomprehensible Finder](https://github.com/codecop/Finder-Refactoring-Kata).
 
 ## Introduction
 
@@ -19,14 +21,11 @@ You job is to refactor the code and make it readable, while keeping the code in 
 
 ## Tips
 
-- Start with simple rename refactors so you can better understand the abstractions you are working with. Rename any class or any variable.
-
-- Move on to extract methods and making the code more modular.
-
-- See if you can also eliminate switch statements and multiple exit points from methods.
+Start with simple rename refactors so you can better understand the abstractions you are working with. Rename any class or any variable.
 
 Anything is fair game, create new classes, new methods, and rename tests.
 The only restriction is that the existing tests have to keep working.
+
 Lean on the tests and run them after every small change to make sure you are on the right path.
 
 ## How to End
