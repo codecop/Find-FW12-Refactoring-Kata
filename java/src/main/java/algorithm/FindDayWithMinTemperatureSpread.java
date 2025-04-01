@@ -12,10 +12,10 @@ public class FindDayWithMinTemperatureSpread {
         this.dataFileName = dataFileName;
     }
 
-    public String findDay() throws IOException {
+    public String findDay(MinMax mode) throws IOException {
         List<String> rawData = dataMunger.load(dataFileName);
         List<WeatherData> weatherDataList = parse(rawData);
-        WeatherData weatherDataWithMinSpread = dataMunger.findMinDifference(weatherDataList);
+        WeatherData weatherDataWithMinSpread = dataMunger.findMinDifference(weatherDataList, mode);
         return weatherDataWithMinSpread.resultId();
     }
 

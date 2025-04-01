@@ -18,8 +18,12 @@ public class DataMunger {
         return Files.readAllLines(dataFile);
     }
 
-    public <D extends Data> D findMinDifference(List<D> data) {
-        data.sort(Comparator.comparing(Data::sortBy));
+    public <D extends Data> D findMinDifference(List<D> data, MinMax mode) {
+        if (mode == MinMax.MAX) {
+            data.sort(Comparator.comparing(Data::sortBy).reversed());
+        } else {
+            data.sort(Comparator.comparing(Data::sortBy));
+        }
         return data.get(0);
     }
 

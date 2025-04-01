@@ -12,10 +12,10 @@ public class FindTeamWithMinGoalDifference {
         this.dataFileName = dataFileName;
     }
 
-    public String findTeam() throws IOException {
+    public String findTeam(MinMax mode) throws IOException {
         List<String> rawData = dataMunger.load(dataFileName);
         List<FootballData> footballDataList = parse(rawData);
-        FootballData footballDataWithMinDifference = dataMunger.findMinDifference(footballDataList);
+        FootballData footballDataWithMinDifference = dataMunger.findMinDifference(footballDataList, mode);
         return footballDataWithMinDifference.resultId();
     }
 
