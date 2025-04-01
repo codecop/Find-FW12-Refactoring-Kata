@@ -15,11 +15,11 @@ public class FindW {
     public String find(OneTwo ot) throws IOException {
         List<String> data = helper.l(fn);
         List<W> wData = p(data);
-        W r = helper.find(wData, ot);
-        return r.i();
+        W w = helper.find(wData, ot);
+        return w.r();
     }
 
-    List<W> p(List<String> data) {
+    private List<W> p(List<String> data) {
         return helper.p(data, //
                 this::startsWithDayOfMonth, //
                 this::newW);

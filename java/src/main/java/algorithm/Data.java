@@ -2,7 +2,7 @@ package algorithm;
 
 public interface Data {
 
-    String i();
+    String r();
 
     int sort();
 }

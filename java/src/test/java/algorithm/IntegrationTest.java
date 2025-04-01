@@ -10,39 +10,39 @@ import org.junit.jupiter.api.Test;
 class IntegrationTest {
 
     @Nested
-    class A {
-        FindW minSpread = new FindW("w.dat");
+    class FindWTest {
+        FindW finder = new FindW("w.dat");
 
         @Test
-        void shouldFindSpreadDayNumberOfAssignment_One() throws IOException {
-            String day = minSpread.find(OneTwo.ONE);
+        void shouldFindDyOne() throws IOException {
+            String dy = finder.find(OneTwo.ONE);
 
-            assertEquals("14", day);
+            assertEquals("14", dy);
         }
 
         @Test
-        void shouldFindSpreadDayNumberOfAssignment_Two() throws IOException {
-            String day = minSpread.find(OneTwo.TWO);
+        void shouldFindDyTwo() throws IOException {
+            String dy = finder.find(OneTwo.TWO);
 
-            assertEquals("9", day);
+            assertEquals("9", dy);
         }
 
     }
 
     @Nested
-    class B {
-        FindF minDiff = new FindF("f.dat");
+    class FindFTest {
+        FindF finder = new FindF("f.dat");
 
         @Test
-        void shouldFindGoalDifferenceTeamOfAssignment_One() throws IOException {
-            String team = minDiff.find(OneTwo.ONE);
+        void shouldFindTeamOne() throws IOException {
+            String team = finder.find(OneTwo.ONE);
 
             assertEquals("Aston_Villa", team);
         }
 
         @Test
-        void shouldFindMinGoalDifferenceTeamOfAssignment_Two() throws IOException {
-            String team = minDiff.find(OneTwo.TWO);
+        void shouldFindTeamTwo() throws IOException {
+            String team = finder.find(OneTwo.TWO);
 
             assertEquals("Arsenal", team);
         }

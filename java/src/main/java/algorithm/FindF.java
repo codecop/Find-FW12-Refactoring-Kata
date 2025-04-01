@@ -15,11 +15,11 @@ public class FindF {
     public String find(OneTwo ot) throws IOException {
         List<String> data = helper.l(fn);
         List<F> fData = p(data);
-        F r = helper.find(fData, ot);
-        return r.i();
+        F f = helper.find(fData, ot);
+        return f.r();
     }
 
-    List<F> p(List<String> data) {
+    private List<F> p(List<String> data) {
         return helper.p(data, //
                 this::startsWithRank, //
                 this::newF);

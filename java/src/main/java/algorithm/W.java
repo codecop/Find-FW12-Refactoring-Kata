@@ -13,7 +13,7 @@ public class W implements Data {
     }
 
     @Override
-    public String i() {
+    public String r() {
         return Integer.toString(dy);
     }
 

@@ -13,7 +13,7 @@ public class F implements Data {
     }
 
     @Override
-    public String i() {
+    public String r() {
         return team;
     }
 
