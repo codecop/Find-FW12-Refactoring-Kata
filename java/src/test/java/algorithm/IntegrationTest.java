@@ -14,15 +14,15 @@ class IntegrationTest {
         FindDayWithMinTemperatureSpread minSpread = new FindDayWithMinTemperatureSpread("w.dat");
 
         @Test
-        void shouldFindMinSpreadDayNumberOfAssignment() throws IOException {
-            String day = minSpread.findDay(MinMax.ONE);
+        void shouldFindSpreadDayNumberOfAssignment_One() throws IOException {
+            String day = minSpread.findDay(OneTwo.ONE);
 
             assertEquals("14", day);
         }
 
         @Test
-        void shouldFindMinSpreadDayNumberOfAssignmentMAX() throws IOException {
-            String day = minSpread.findDay(MinMax.TWO);
+        void shouldFindSpreadDayNumberOfAssignment_Two() throws IOException {
+            String day = minSpread.findDay(OneTwo.TWO);
 
             assertEquals("9", day);
         }
@@ -34,15 +34,15 @@ class IntegrationTest {
         FindTeamWithMinGoalDifference minDiff = new FindTeamWithMinGoalDifference("f.dat");
 
         @Test
-        void shouldFindMinGoalDifferenceTeamOfAssignment() throws IOException {
-            String team = minDiff.findTeam(MinMax.ONE);
+        void shouldFindGoalDifferenceTeamOfAssignment_One() throws IOException {
+            String team = minDiff.findTeam(OneTwo.ONE);
 
             assertEquals("Aston_Villa", team);
         }
 
         @Test
-        void shouldFindMinGoalDifferenceTeamOfAssignmentMax() throws IOException {
-            String team = minDiff.findTeam(MinMax.TWO);
+        void shouldFindMinGoalDifferenceTeamOfAssignment_Two() throws IOException {
+            String team = minDiff.findTeam(OneTwo.TWO);
 
             assertEquals("Arsenal", team);
         }

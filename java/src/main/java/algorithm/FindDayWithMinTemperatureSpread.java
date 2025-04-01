@@ -5,22 +5,22 @@ import java.util.List;
 
 public class FindDayWithMinTemperatureSpread {
 
-    private final DataMunger dataMunger = new DataMunger();
+    private final Helper dataMunger = new Helper();
     private final String dataFileName;
 
     public FindDayWithMinTemperatureSpread(String dataFileName) {
         this.dataFileName = dataFileName;
     }
 
-    public String findDay(MinMax mode) throws IOException {
-        List<String> rawData = dataMunger.load(dataFileName);
+    public String findDay(OneTwo mode) throws IOException {
+        List<String> rawData = dataMunger.l(dataFileName);
         List<W> weatherDataList = parse(rawData);
-        W weatherDataWithMinSpread = dataMunger.findMinDifference(weatherDataList, mode);
+        W weatherDataWithMinSpread = dataMunger.find(weatherDataList, mode);
         return weatherDataWithMinSpread.i();
     }
 
     List<W> parse(List<String> weatherDataLines) {
-        return dataMunger.parse(weatherDataLines, //
+        return dataMunger.p(weatherDataLines, //
                 this::startsWithDayOfMonth, //
                 this::parseDayWithTemperatureRange);
     }

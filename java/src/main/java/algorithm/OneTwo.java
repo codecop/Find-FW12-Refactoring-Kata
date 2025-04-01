@@ -1,6 +1,6 @@
 package algorithm;
 
-public enum MinMax {
+public enum OneTwo {
 
     ONE, TWO
     

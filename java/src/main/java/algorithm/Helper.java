@@ -10,16 +10,16 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class DataMunger {
+public class Helper {
 
-    public List<String> load(String s) throws IOException {
+    public List<String> l(String s) throws IOException {
         String f = "src/test/java/algorithm/" + s;
         Path p = Paths.get(f);
         return Files.readAllLines(p);
     }
 
-    public <D extends Data> D findMinDifference(List<D> data, MinMax mode) {
-        switch (mode) {
+    public <D extends Data> D find(List<D> data, OneTwo ot) {
+        switch (ot) {
         case ONE:
             data.sort(Comparator.comparing(Data::sort));
             break;
@@ -27,21 +27,20 @@ public class DataMunger {
             data.sort(Comparator.comparing(Data::sort).reversed());
             break;
         default:
-            throw new IllegalArgumentException(mode.toString());
+            throw new IllegalArgumentException(ot.toString());
         }
         return data.get(0);
     }
 
-    public <D extends Data> List<D> parse(List<String> data, Predicate<String> isDataLine,
-            Function<String[], D> parseLine) {
+    public <D extends Data> List<D> p(List<String> data, Predicate<String> pred, Function<String[], D> fun) {
         return data.stream(). //
-                filter(isDataLine). //
-                map(this::split). //
-                map(parseLine). //
+                filter(pred). //
+                map(this::sp). //
+                map(fun). //
                 collect(Collectors.toList());
     }
 
-    private String[] split(String s) {
+    private String[] sp(String s) {
         return s.trim().split("\\s+");
     }
 }

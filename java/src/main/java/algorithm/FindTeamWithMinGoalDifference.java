@@ -5,22 +5,22 @@ import java.util.List;
 
 public class FindTeamWithMinGoalDifference {
 
-    private final DataMunger dataMunger = new DataMunger();
+    private final Helper dataMunger = new Helper();
     private final String dataFileName;
 
     public FindTeamWithMinGoalDifference(String dataFileName) {
         this.dataFileName = dataFileName;
     }
 
-    public String findTeam(MinMax mode) throws IOException {
-        List<String> rawData = dataMunger.load(dataFileName);
+    public String findTeam(OneTwo mode) throws IOException {
+        List<String> rawData = dataMunger.l(dataFileName);
         List<F> footballDataList = parse(rawData);
-        F footballDataWithMinDifference = dataMunger.findMinDifference(footballDataList, mode);
+        F footballDataWithMinDifference = dataMunger.find(footballDataList, mode);
         return footballDataWithMinDifference.i();
     }
 
     List<F> parse(List<String> footballDataLines) {
-        return dataMunger.parse(footballDataLines, //
+        return dataMunger.p(footballDataLines, //
                 this::startsWithRank, //
                 this::parseTeamAndGoalDifference);
     }
