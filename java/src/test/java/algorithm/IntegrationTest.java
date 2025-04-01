@@ -4,44 +4,49 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 class IntegrationTest {
 
-    @Test
-    void shouldFindMinSpreadDayNumberOfAssignment() throws IOException {
-        FindDayWithMinTemperatureSpread minSpread = new FindDayWithMinTemperatureSpread("weather.dat");
+    @Nested
+    class A {
+        FindDayWithMinTemperatureSpread minSpread = new FindDayWithMinTemperatureSpread("w.dat");
 
-        String day = minSpread.findDay(MinMax.MIN);
+        @Test
+        void shouldFindMinSpreadDayNumberOfAssignment() throws IOException {
+            String day = minSpread.findDay(MinMax.ONE);
 
-        assertEquals("14", day);
+            assertEquals("14", day);
+        }
+
+        @Test
+        void shouldFindMinSpreadDayNumberOfAssignmentMAX() throws IOException {
+            String day = minSpread.findDay(MinMax.TWO);
+
+            assertEquals("9", day);
+        }
+
     }
 
-    @Test
-    void shouldFindMinSpreadDayNumberOfAssignmentMAX() throws IOException {
-        FindDayWithMinTemperatureSpread minSpread = new FindDayWithMinTemperatureSpread("weather.dat");
+    @Nested
+    class B {
+        FindTeamWithMinGoalDifference minDiff = new FindTeamWithMinGoalDifference("f.dat");
 
-        String day = minSpread.findDay(MinMax.MAX);
+        @Test
+        void shouldFindMinGoalDifferenceTeamOfAssignment() throws IOException {
+            String team = minDiff.findTeam(MinMax.ONE);
 
-        assertEquals("9", day);
-    }
+            assertEquals("Aston_Villa", team);
+        }
 
-    @Test
-    void shouldFindMinGoalDifferenceTeamOfAssignment() throws IOException {
-        FindTeamWithMinGoalDifference minDiff = new FindTeamWithMinGoalDifference("football.dat");
+        @Test
+        void shouldFindMinGoalDifferenceTeamOfAssignmentMax() throws IOException {
+            String team = minDiff.findTeam(MinMax.TWO);
 
-        String team = minDiff.findTeam(MinMax.MIN);
+            assertEquals("Arsenal", team);
+        }
 
-        assertEquals("Aston_Villa", team);
-    }
-
-    @Test
-    void shouldFindMinGoalDifferenceTeamOfAssignmentMax() throws IOException {
-        FindTeamWithMinGoalDifference minDiff = new FindTeamWithMinGoalDifference("football.dat");
-
-        String team = minDiff.findTeam(MinMax.MAX);
-
-        assertEquals("Arsenal", team);
     }
 
 }

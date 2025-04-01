@@ -14,12 +14,12 @@ public class FindTeamWithMinGoalDifference {
 
     public String findTeam(MinMax mode) throws IOException {
         List<String> rawData = dataMunger.load(dataFileName);
-        List<FootballData> footballDataList = parse(rawData);
-        FootballData footballDataWithMinDifference = dataMunger.findMinDifference(footballDataList, mode);
-        return footballDataWithMinDifference.resultId();
+        List<F> footballDataList = parse(rawData);
+        F footballDataWithMinDifference = dataMunger.findMinDifference(footballDataList, mode);
+        return footballDataWithMinDifference.i();
     }
 
-    List<FootballData> parse(List<String> footballDataLines) {
+    List<F> parse(List<String> footballDataLines) {
         return dataMunger.parse(footballDataLines, //
                 this::startsWithRank, //
                 this::parseTeamAndGoalDifference);
@@ -29,7 +29,7 @@ public class FindTeamWithMinGoalDifference {
         return line.matches("\\s*\\d+\\.\\s.*");
     }
 
-    private FootballData parseTeamAndGoalDifference(String[] columns) {
+    private F parseTeamAndGoalDifference(String[] columns) {
         int colTeam = 1;
         int colF = 6;
         int colA = 8;
@@ -38,7 +38,7 @@ public class FindTeamWithMinGoalDifference {
         int forTeam = Integer.parseInt(columns[colF]);
         int againstTeam = Integer.parseInt(columns[colA]);
 
-        return new FootballData(team, forTeam, againstTeam);
+        return new F(team, forTeam, againstTeam);
     }
 
 }

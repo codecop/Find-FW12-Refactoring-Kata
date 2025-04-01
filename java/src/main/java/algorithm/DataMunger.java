@@ -12,30 +12,36 @@ import java.util.stream.Collectors;
 
 public class DataMunger {
 
-    public List<String> load(String dataFileName) throws IOException {
-        String resource = "src/test/java/algorithm/" + dataFileName;
-        Path dataFile = Paths.get(resource);
-        return Files.readAllLines(dataFile);
+    public List<String> load(String s) throws IOException {
+        String f = "src/test/java/algorithm/" + s;
+        Path p = Paths.get(f);
+        return Files.readAllLines(p);
     }
 
     public <D extends Data> D findMinDifference(List<D> data, MinMax mode) {
-        if (mode == MinMax.MAX) {
-            data.sort(Comparator.comparing(Data::sortBy).reversed());
-        } else {
-            data.sort(Comparator.comparing(Data::sortBy));
+        switch (mode) {
+        case ONE:
+            data.sort(Comparator.comparing(Data::sort));
+            break;
+        case TWO:
+            data.sort(Comparator.comparing(Data::sort).reversed());
+            break;
+        default:
+            throw new IllegalArgumentException(mode.toString());
         }
         return data.get(0);
     }
 
-    public <D extends Data> List<D> parse(List<String> dataLines, Predicate<String> isDataLine, Function<String[], D> parseLine) {
-        return dataLines.stream(). //
+    public <D extends Data> List<D> parse(List<String> data, Predicate<String> isDataLine,
+            Function<String[], D> parseLine) {
+        return data.stream(). //
                 filter(isDataLine). //
                 map(this::split). //
                 map(parseLine). //
                 collect(Collectors.toList());
     }
 
-    private String[] split(String line) {
-        return line.trim().split("\\s+");
+    private String[] split(String s) {
+        return s.trim().split("\\s+");
     }
 }

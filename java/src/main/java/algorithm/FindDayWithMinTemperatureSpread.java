@@ -14,12 +14,12 @@ public class FindDayWithMinTemperatureSpread {
 
     public String findDay(MinMax mode) throws IOException {
         List<String> rawData = dataMunger.load(dataFileName);
-        List<WeatherData> weatherDataList = parse(rawData);
-        WeatherData weatherDataWithMinSpread = dataMunger.findMinDifference(weatherDataList, mode);
-        return weatherDataWithMinSpread.resultId();
+        List<W> weatherDataList = parse(rawData);
+        W weatherDataWithMinSpread = dataMunger.findMinDifference(weatherDataList, mode);
+        return weatherDataWithMinSpread.i();
     }
 
-    List<WeatherData> parse(List<String> weatherDataLines) {
+    List<W> parse(List<String> weatherDataLines) {
         return dataMunger.parse(weatherDataLines, //
                 this::startsWithDayOfMonth, //
                 this::parseDayWithTemperatureRange);
@@ -29,7 +29,7 @@ public class FindDayWithMinTemperatureSpread {
         return line.matches("\\s*\\d+\\s.*");
     }
 
-    private WeatherData parseDayWithTemperatureRange(String[] columns) {
+    private W parseDayWithTemperatureRange(String[] columns) {
         int colDy = 0;
         int colMxt = 1;
         int colMnT = 2;
@@ -38,7 +38,7 @@ public class FindDayWithMinTemperatureSpread {
         int max = Integer.parseInt(removeTrailing(columns[colMxt], "*"));
         int min = Integer.parseInt(removeTrailing(columns[colMnT], "*"));
 
-        return new WeatherData(day, max, min);
+        return new W(day, max, min);
     }
 
     private String removeTrailing(String field, String noise) {
