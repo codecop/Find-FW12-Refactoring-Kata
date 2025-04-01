@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class Helper {
 
     public List<String> l(String s) throws IOException {
-        String f = "src/test/java/algorithm/" + s;
+        String f = "src/main/java/algorithm/" + s;
         Path p = Paths.get(f);
         return Files.readAllLines(p);
     }
