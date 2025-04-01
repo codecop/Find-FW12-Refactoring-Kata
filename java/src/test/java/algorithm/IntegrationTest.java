@@ -13,8 +13,6 @@ import algorithm.FindTeamWithMinGoalDifference;
 
 class IntegrationTest {
 
-    // regression test - kind of integration test, contains all cases of all numbers
-
     @Test
     void shouldFindMinSpreadDayNumberOfAssignment() throws IOException {
         FindDayWithMinTemperatureSpread minSpread = new FindDayWithMinTemperatureSpread("weather.dat");

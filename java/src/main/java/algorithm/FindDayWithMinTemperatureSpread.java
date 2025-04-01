@@ -19,7 +19,6 @@ public class FindDayWithMinTemperatureSpread {
         return weatherDataWithMinSpread.resultId();
     }
 
-    // package access for unit test
     List<WeatherData> parse(List<String> weatherDataLines) {
         return dataMunger.parse(weatherDataLines, //
                 this::startsWithDayOfMonth, //
@@ -31,9 +30,6 @@ public class FindDayWithMinTemperatureSpread {
     }
 
     private WeatherData parseDayWithTemperatureRange(String[] columns) {
-        // parse knows which columns are needed
-        // parse does parse of integers
-
         int colDy = 0;
         int colMxt = 1;
         int colMnT = 2;
@@ -51,11 +47,6 @@ public class FindDayWithMinTemperatureSpread {
             return field.substring(0, beforeNoise);
         }
         return field;
-    }
-
-    public static void main(String... args) throws IOException {
-        FindDayWithMinTemperatureSpread min = new FindDayWithMinTemperatureSpread("weather.dat");
-        System.out.println(min.findDay());
     }
 
 }

@@ -24,10 +24,10 @@ public class DataMunger {
     }
 
     public <D extends Data> List<D> parse(List<String> dataLines, Predicate<String> isDataLine, Function<String[], D> parseLine) {
-        return dataLines.stream().
-                filter(isDataLine).
-                map(this::split).
-                map(parseLine).
+        return dataLines.stream(). //
+                filter(isDataLine). //
+                map(this::split). //
+                map(parseLine). //
                 collect(Collectors.toList());
     }
 
