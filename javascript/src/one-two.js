@@ -3,6 +3,4 @@ const OneTwo = {
     TWO: 1
 };
 
-module.exports = {
-    OneTwo
-};
+module.exports = { OneTwo };

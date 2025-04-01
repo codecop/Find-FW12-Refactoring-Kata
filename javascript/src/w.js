@@ -15,6 +15,4 @@ class W {
     }
 }
 
-module.exports = {
-    W
-};
+module.exports = { W };

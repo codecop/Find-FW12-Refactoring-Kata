@@ -15,6 +15,4 @@ class F {
     }
 }
 
-module.exports = {
-    F
-};
+module.exports = { F };
