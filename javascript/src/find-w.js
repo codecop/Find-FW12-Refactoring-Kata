@@ -15,7 +15,7 @@ class FindW {
     }
 
     p(data) {
-        return this.helper.p(data, this.startsWithDayOfMonth, this.newW);
+        return this.helper.p(data, this.startsWithDayOfMonth, this.newW.bind(this));
     }
 
     startsWithDayOfMonth(s) {

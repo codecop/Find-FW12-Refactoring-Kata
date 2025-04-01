@@ -7,20 +7,19 @@ describe('Integration', () => {
 
     describe('FindW', () => {
         beforeEach(() => {
-            console.log(FindW);
             finder = new FindW("w.dat");
         });
 
         test('should find One', () => {
             const r = finder.find(OneTwo.ONE);
 
-            expect(r).toEquaL("14");
+            expect(r).toBe("14");
         });
 
         test('should find Two', () => {
             const r = finder.find(OneTwo.TWO);
 
-            expect(r).toEquaL("9");
+            expect(r).toBe("9");
         });
 
     });
@@ -33,13 +32,13 @@ describe('Integration', () => {
         test('should find One', () => {
             const r = finder.find(OneTwo.ONE);
 
-            expect(r).toEquaL("Aston_Villa");
+            expect(r).toBe("Aston_Villa");
         });
 
         test('should find Two', () => {
             const r = finder.find(OneTwo.TWO);
 
-            expect(r).toEquaL("Arsenal");
+            expect(r).toBe("Arsenal");
         });
     });
 
